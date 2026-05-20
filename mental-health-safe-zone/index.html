@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mental Health Safe Zone System: WebGIS interaktif untuk pemetaan zona stres, safe space, RTH, dan fasilitas pendukung kesehatan mental berbasis Smart City." />
+  <title>Mental Health Safe Zone System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="home">
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Mental Health Safe Zone homepage">
+      <span class="brand-mark">MH</span>
+      <span class="brand-text">SafeZone<span>GIS</span></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Buka menu navigasi"><span></span><span></span></button>
+    <nav class="site-nav" data-nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="map.html">WebGIS</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="data.html">Data</a>
+      <a href="methodology.html">Metodologi</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-full">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="orb orb-c"></div>
+        <div class="city-grid"></div>
+        <div class="pulse-map">
+          <span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span><span class="pin p4"></span>
+        </div>
+      </div>
+      <div class="container hero-content">
+        <p class="eyebrow reveal">Smart City · Smart Health · WebGIS</p>
+        <h1 class="hero-title reveal">Mental Health Safe Zone System</h1>
+        <p class="hero-lead reveal">
+          Platform geospasial untuk memetakan zona stres, ruang pemulihan emosi, ruang terbuka hijau, dan layanan pendukung kesehatan mental di kawasan perkotaan.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="map.html" class="btn btn-primary magnet">Jelajahi WebGIS</a>
+          <a href="dashboard.html" class="btn btn-ghost magnet">Lihat Dashboard</a>
+        </div>
+        <div class="hero-stats reveal" aria-label="Ringkasan kebutuhan sistem">
+          <div><strong>9,8%</strong><span>prevalensi gangguan mental emosional</span></div>
+          <div><strong>1 : 4</strong><span>rasio psikiater terhadap penduduk</span></div>
+          <div><strong>10+</strong><span>lokasi RTH awal terpetakan</span></div>
+        </div>
+      </div>
+      <a href="#overview" class="scroll-cue" aria-label="Scroll ke ringkasan"><span></span>Scroll</a>
+    </section>
+
+    <section id="overview" class="section-padding">
+      <div class="container split-layout">
+        <div class="section-copy reveal">
+          <p class="eyebrow">Latar masalah</p>
+          <h2>Kota semakin padat, tetapi informasi ruang aman belum selalu mudah ditemukan.</h2>
+          <p>
+            Kesehatan mental di perkotaan dipengaruhi tekanan akademik, pekerjaan, mobilitas, dan minimnya akses informasi mengenai safe space, konseling, serta ruang hijau. Website ini menggabungkan pendekatan Smart City, SIG, dan tampilan interaktif agar pengguna baru dapat memahami informasi secara cepat.
+          </p>
+        </div>
+        <div class="glass-card insight-card reveal">
+          <div class="mini-map-card">
+            <div class="mini-map-label">Depok, Sleman</div>
+            <div class="map-line l1"></div><div class="map-line l2"></div><div class="map-line l3"></div>
+            <span class="map-dot d1"></span><span class="map-dot d2"></span><span class="map-dot d3"></span><span class="map-dot d4"></span>
+          </div>
+          <h3>Core output</h3>
+          <p>Dashboard WebGIS dengan peta tematik, filter kategori, daftar lokasi, rekomendasi rute, dan indikator aksesibilitas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding feature-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Fitur utama</p>
+          <h2>Interaktif, ringan, dan ramah pengguna.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal magnet">
+            <span class="icon-bubble">◎</span>
+            <h3>Peta Safe Zone</h3>
+            <p>Marker lokasi RTH, ruang pemulihan, kampus, layanan konseling, dan fasilitas kesehatan mental.</p>
+          </article>
+          <article class="feature-card reveal magnet">
+            <span class="icon-bubble">◌</span>
+            <h3>Filter Tematik</h3>
+            <p>Pengguna dapat memilih kategori berdasarkan kebutuhan: tenang, konseling, kesehatan, atau area tekanan tinggi.</p>
+          </article>
+          <article class="feature-card reveal magnet">
+            <span class="icon-bubble">↗</span>
+            <h3>Routing Cepat</h3>
+            <p>Tombol rute membuka navigasi menuju lokasi pilihan melalui Google Maps.</p>
+          </article>
+          <article class="feature-card reveal magnet">
+            <span class="icon-bubble">◐</span>
+            <h3>Dashboard Kota</h3>
+            <p>Ringkasan distribusi lokasi, tingkat aksesibilitas, dan prioritas pengembangan layanan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding story-section">
+      <div class="container story-grid">
+        <div class="story-step reveal"><span>01</span><h3>Collect</h3><p>Kumpulkan data RTH, safe space, layanan konseling, fasilitas kesehatan, dan area stres.</p></div>
+        <div class="story-step reveal"><span>02</span><h3>Map</h3><p>Normalisasi koordinat, klasifikasi atribut, lalu visualisasikan titik dan zona pada peta.</p></div>
+        <div class="story-step reveal"><span>03</span><h3>Guide</h3><p>Berikan informasi rute, jam layanan, tingkat ketenangan, dan rekomendasi lokasi.</p></div>
+        <div class="story-step reveal"><span>04</span><h3>Improve</h3><p>Gunakan dashboard untuk membaca area layanan yang belum merata.</p></div>
+      </div>
+    </section>
+
+    <section class="section-padding cta-panel reveal">
+      <div class="container cta-inner">
+        <div>
+          <p class="eyebrow">Start exploring</p>
+          <h2>Temukan ruang pulih terdekat secara visual.</h2>
+        </div>
+        <a href="map.html" class="btn btn-primary magnet">Buka Peta Interaktif</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Mental Health Safe Zone System</p>
+      <p>WebGIS prototype for Smart City & mental health awareness.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
