@@ -1,0 +1,12 @@
+{
+  "name": "Mental Health Safe Zone System",
+  "short_name": "MH SafeZone",
+  "description": "WebGIS pemetaan zona stress dan ruang pemulihan emosi untuk Smart City berbasis kesehatan mental.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#08111f",
+  "theme_color": "#8B7CFF",
+  "icons": [
+    {"src":"assets/img/logo.svg","sizes":"any","type":"image/svg+xml"}
+  ]
+}

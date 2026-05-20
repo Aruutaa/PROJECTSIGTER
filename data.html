@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dataset — Mental Health Safe Zone System</title>
+  <meta name="description" content="Dataset spasial WebGIS Mental Health Safe Zone System.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a><div class="noise" aria-hidden="true"></div><div class="cursor-dot" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div>
+  <header class="site-header"><nav class="nav container"><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="Logo"><span>MH SafeZone</span></a><div class="nav-links" data-nav-links><a href="index.html">Home</a><a href="map.html">WebGIS</a><a href="dashboard.html">Dashboard</a><a href="data.html">Data</a><a href="methodology.html">Metode</a><a href="resources.html">Resources</a><a href="about.html">About</a></div><div class="nav-actions"><a class="btn primary" href="map.html">Buka Peta</a><button class="menu-toggle" type="button" aria-label="Buka menu" data-menu-toggle><span></span><span></span></button></div></nav></header>
+  <main id="main">
+    <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Data</span></div><span class="kicker">Open Spatial Data</span><h1>Dataset WebGIS</h1><p class="lead" style="margin-top:18px">Tabel lokasi yang dipakai dalam prototipe. Data dapat difilter, diekspor ke CSV, dan diekspor ke GeoJSON untuk kebutuhan QGIS atau WebGIS lanjutan.</p></div></section>
+    <section class="section compact"><div class="container">
+      <div class="notice reveal"><strong>Catatan validasi:</strong> koordinat RTH pada slide telah dinormalisasi ke format decimal degree agar dapat dibaca peta. Record selain RTH adalah placeholder prototipe dan wajib diganti dengan data survei/instansi resmi sebelum publikasi.</div>
+      <div class="toolbar reveal" style="margin-top:24px">
+        <div class="group">
+          <input id="dataSearch" class="input" style="width:min(320px,100%)" type="search" placeholder="Cari data...">
+          <select id="dataCategory" class="select" style="width:210px"><option value="all">Semua kategori</option><option value="rth">RTH</option><option value="counseling">Konseling</option><option value="health">Faskes</option><option value="safe_space">Safe Space</option><option value="community">Komunitas</option><option value="stress_zone">Stress Zone</option></select>
+          <select id="dataStress" class="select" style="width:210px"><option value="all">Semua stress</option><option value="low">Rendah</option><option value="medium">Sedang</option><option value="high">Tinggi</option><option value="support">Dukungan</option></select>
+        </div>
+        <div class="group"><span class="badge mint" id="dataCount">0 record</span><button id="downloadCsv" class="btn small" type="button">Download CSV</button><button id="downloadJson" class="btn small primary" type="button">Download GeoJSON</button></div>
+      </div>
+      <div class="table-wrap reveal"><table><thead><tr><th>Nama</th><th>Kategori</th><th>Koordinat</th><th>Wilayah</th><th>Stress</th><th>Recovery</th><th>Akses</th><th>Jam</th><th>Sumber</th></tr></thead><tbody id="dataTableBody"></tbody></table></div>
+    </div></section>
+    <section class="section compact"><div class="container split">
+      <article class="glass-card reveal"><span class="kicker">Data Model</span><h2>Schema minimum</h2><p style="margin-top:14px">Struktur ini sudah cukup untuk WebGIS: identitas lokasi, kategori, geometri, atribut lingkungan, skor pemulihan, dan rekomendasi sistem.</p><button id="copySchema" class="btn small" style="margin-top:18px" type="button">Copy schema</button></article>
+      <pre id="schemaBlock" class="glass-card reveal" style="overflow:auto;white-space:pre-wrap;color:#dce7ff"><code>{
+  id: string,
+  name: string,
+  category: 'rth' | 'counseling' | 'health' | 'safe_space' | 'community' | 'stress_zone',
+  type: 'point' | 'zone',
+  lat: number,
+  lng: number,
+  radius: number,
+  stressLevel: 'low' | 'medium' | 'high' | 'support',
+  recoveryScore: number,
+  accessScore: number,
+  crowd: string,
+  noise: string,
+  openHours: string,
+  description: string,
+  recommendation: string
+}</code></pre>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt=""><span>MH SafeZone</span></a><p style="margin-top:14px">Dataset spasial untuk prototipe WebGIS.</p></div><div><strong>Menu</strong><a href="map.html">WebGIS</a><a href="dashboard.html">Dashboard</a></div><div><strong>Project</strong><a href="methodology.html">Metode</a><a href="about.html">About</a></div></div></footer>
+  <script src="assets/js/data.js"></script><script src="assets/js/main.js"></script><script src="assets/js/data-page.js"></script>
+</body>
+</html>

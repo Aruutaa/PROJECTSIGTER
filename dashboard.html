@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — Mental Health Safe Zone System</title>
+  <meta name="description" content="Dashboard indikator spasial untuk pemetaan safe zone kesehatan mental.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+  <div class="noise" aria-hidden="true"></div><div class="cursor-dot" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav container"><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="Logo"><span>MH SafeZone</span></a><div class="nav-links" data-nav-links><a href="index.html">Home</a><a href="map.html">WebGIS</a><a href="dashboard.html">Dashboard</a><a href="data.html">Data</a><a href="methodology.html">Metode</a><a href="resources.html">Resources</a><a href="about.html">About</a></div><div class="nav-actions"><a class="btn primary" href="map.html">Buka Peta</a><button class="menu-toggle" type="button" aria-label="Buka menu" data-menu-toggle><span></span><span></span></button></div></nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Dashboard</span></div>
+        <span class="kicker">Spatial Intelligence</span>
+        <h1>Dashboard Kota Emosional</h1>
+        <p class="lead" style="margin-top:18px">Ringkasan kondisi spasial: sebaran kategori, prioritas zona pemulihan, hubungan akses dan recovery score, serta simulasi indeks pemulihan emosi.</p>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container">
+        <div class="dashboard-grid">
+          <article class="glass-card reveal"><span class="badge mint">Total titik</span><div class="stat-big" id="metricLocations">0</div><p>Record spasial dalam prototipe.</p></article>
+          <article class="glass-card reveal"><span class="badge lavender">Recovery</span><div class="stat-big" id="metricRecovery">0</div><p>Rata-rata skor pemulihan.</p></article>
+          <article class="glass-card reveal"><span class="badge peach">Akses</span><div class="stat-big" id="metricAccess">0</div><p>Rata-rata aksesibilitas lokasi.</p></article>
+          <article class="glass-card reveal"><span class="badge pink">High stress</span><div class="stat-big" id="metricHighStress">0</div><p>Zona dengan tekanan tinggi.</p></article>
+        </div>
+
+        <div class="chart-grid">
+          <article class="glass-card chart-card reveal"><h3>Distribusi kategori layer</h3><p>Memperlihatkan komposisi titik spasial berdasarkan kategori WebGIS.</p><div class="chart-box"><canvas id="categoryChart"></canvas></div></article>
+          <article class="glass-card chart-card reveal"><h3>Top recovery point</h3><p>Lokasi non-stress-zone dengan skor pemulihan tertinggi.</p><div class="chart-box"><canvas id="recoveryChart"></canvas></div></article>
+          <article class="glass-card chart-card reveal"><h3>Level tekanan & dukungan</h3><p>Komposisi titik berdasarkan low, medium, high, dan support node.</p><div class="chart-box"><canvas id="stressChart"></canvas></div></article>
+          <article class="glass-card chart-card reveal"><h3>Akses vs recovery</h3><p>Scatter plot untuk membaca lokasi yang mudah diakses sekaligus suportif.</p><div class="chart-box"><canvas id="accessChart"></canvas></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container split">
+        <article class="glass-card reveal">
+          <span class="kicker">Priority Ranking</span>
+          <h2>Prioritas zona pemulihan</h2>
+          <p class="lead" style="margin:16px 0 24px">Ranking dihitung dari skor pemulihan, aksesibilitas, level stres, dan bobot ruang hijau. Model ini masih prototipe sehingga bobot dapat disesuaikan saat data lapangan tersedia.</p>
+          <div id="priorityList" class="priority-list"></div>
+        </article>
+        <article class="glass-card reveal">
+          <span class="kicker">Simulation</span>
+          <h2>Emotional Recovery Index</h2>
+          <p style="margin:14px 0 24px">Simulasi sederhana untuk menilai kelayakan suatu lokasi sebagai safe zone.</p>
+          <div class="score-ring" id="sim-ring"><span id="sim-score">0</span></div>
+          <p id="sim-output" class="center" style="margin-bottom:22px"></p>
+          <div class="slider-grid">
+            <div class="range-row"><label>Kebisingan <span data-range-value="sim-noise">35</span></label><input id="sim-noise" type="range" min="0" max="100" value="35"></div>
+            <div class="range-row"><label>Keramaian <span data-range-value="sim-crowd">45</span></label><input id="sim-crowd" type="range" min="0" max="100" value="45"></div>
+            <div class="range-row"><label>Kualitas ruang hijau <span data-range-value="sim-green">82</span></label><input id="sim-green" type="range" min="0" max="100" value="82"></div>
+            <div class="range-row"><label>Aksesibilitas <span data-range-value="sim-access">78</span></label><input id="sim-access" type="range" min="0" max="100" value="78"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container">
+        <div class="section-head reveal"><div><span class="kicker">Decision Support</span><h2>Rekomendasi pengembangan sistem</h2></div><p class="lead">Dashboard bukan hanya visualisasi, tetapi alat bantu untuk membaca gap layanan dan menentukan prioritas intervensi smart city.</p></div>
+        <div class="card-grid four">
+          <article class="glass-card reveal"><h3>01. Validasi Data</h3><p>Koordinat, jam layanan, izin, dan status fasilitas harus diverifikasi sebelum rilis publik.</p></article>
+          <article class="glass-card reveal"><h3>02. Tambah Sensorik</h3><p>Masukkan indikator kebisingan, keramaian, pencahayaan, keamanan, dan akses difabel.</p></article>
+          <article class="glass-card reveal"><h3>03. Routing Nyata</h3><p>Integrasikan routing engine jika diperlukan untuk estimasi waktu tempuh dan rute aman.</p></article>
+          <article class="glass-card reveal"><h3>04. Privasi</h3><p>Hindari menyimpan lokasi personal dan kondisi mental pengguna tanpa persetujuan eksplisit.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt=""><span>MH SafeZone</span></a><p style="margin-top:14px">Dashboard prototipe untuk analisis spasial kesehatan mental kota.</p></div><div><strong>Menu</strong><a href="map.html">WebGIS</a><a href="data.html">Data</a></div><div><strong>Project</strong><a href="methodology.html">Metode</a><a href="about.html">About</a></div></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

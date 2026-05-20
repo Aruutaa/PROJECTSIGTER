@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mental Health Safe Zone System — Smart City WebGIS</title>
+  <meta name="description" content="WebGIS interaktif untuk pemetaan zona stres dan ruang pemulihan emosi dalam smart city berbasis kesehatan mental.">
+  <meta name="theme-color" content="#8B7CFF">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a class="brand" href="index.html" aria-label="Mental Health Safe Zone System">
+        <img src="assets/img/logo.svg" alt="Logo Mental Health Safe Zone">
+        <span>MH SafeZone</span>
+      </a>
+      <div class="nav-links" data-nav-links>
+        <a href="index.html">Home</a>
+        <a href="map.html">WebGIS</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="data.html">Data</a>
+        <a href="methodology.html">Metode</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn primary" href="map.html">Buka Peta</a>
+        <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" data-menu-toggle><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <canvas id="ambientCanvas" aria-hidden="true"></canvas>
+      <div class="orb o1" aria-hidden="true"></div>
+      <div class="orb o2" aria-hidden="true"></div>
+      <div class="orb o3" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="kicker">Smart City · Mental Health · WebGIS</span>
+          <h1 class="hero-title">
+            <span class="line">Mental Health</span>
+            <span class="line gradient-text">Safe Zone</span>
+            <span class="line">System</span>
+          </h1>
+          <p class="lead hero-text">Pemetaan zona stres, ruang pemulihan emosi, RTH, layanan dukungan, dan rute menuju safe space untuk kota yang lebih peka terhadap kesehatan mental.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="map.html">Eksplorasi WebGIS</a>
+            <a class="btn" href="dashboard.html">Lihat Dashboard</a>
+            <a class="btn ghost" href="methodology.html">Pelajari Metode</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-card tilt">
+              <strong data-count="22" data-suffix="+">0+</strong>
+              <span>Titik spasial prototipe: RTH, support, safe space, dan stress zone.</span>
+            </div>
+            <div class="meta-card tilt">
+              <strong data-count="6">0</strong>
+              <span>Kategori layer untuk memudahkan pemahaman pengguna baru.</span>
+            </div>
+            <div class="meta-card tilt">
+              <strong>GIS</strong>
+              <span>Peta tematik, filter, rute, radius zona, dan ekspor data.</span>
+            </div>
+          </div>
+        </div>
+        <aside class="experience-panel tilt reveal" aria-label="Preview konsep WebGIS interaktif">
+          <div class="panel-topbar">
+            <span class="live-dot">Live spatial layer</span>
+            <span>Depok, Sleman</span>
+          </div>
+          <div class="city-visual">
+            <div class="city-line"></div>
+            <div class="city-line"></div>
+            <div class="city-line"></div>
+            <span class="map-pin pin-1" data-label="RTH"></span>
+            <span class="map-pin pin-2" data-label="Stress"></span>
+            <span class="map-pin pin-3" data-label="Support"></span>
+            <span class="map-pin pin-4" data-label="Safe Space"></span>
+            <div class="mood-card">
+              <div class="mood-row"><strong>Emotional Recovery Index</strong><span class="badge mint">72/100</span></div>
+              <div class="mood-bar"><span></span></div>
+              <p>Rekomendasi sistem: arahkan pengguna ke ruang hijau rendah kebisingan dalam radius terdekat.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="scrolldown">Scroll</div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Safe & Livable Space</span><span>People-first Smart City</span><span>Stress Zone Mapping</span><span>Recovery Route</span><span>Spatial Dashboard</span><span>Inclusive Urban Health</span>
+        <span>Safe & Livable Space</span><span>People-first Smart City</span><span>Stress Zone Mapping</span><span>Recovery Route</span><span>Spatial Dashboard</span><span>Inclusive Urban Health</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Masalah Utama</span>
+            <h2>Kota tidak cukup hanya pintar. Kota juga harus terasa aman secara emosional.</h2>
+          </div>
+          <p class="lead">Project ini menjawab masalah informasi lokasi yang belum terintegrasi: pengguna perlu tahu di mana ruang tenang, layanan konseling, fasilitas pendukung, dan area dengan potensi tekanan tinggi.</p>
+        </div>
+        <div class="card-grid three">
+          <article class="glass-card reveal tilt">
+            <div class="card-icon">🧠</div>
+            <h3>Tekanan Urban</h3>
+            <p>Aktivitas akademik, kerja, mobilitas, kebisingan, dan keramaian dapat meningkatkan tekanan emosional, terutama pada pelajar, mahasiswa, dan usia produktif.</p>
+          </article>
+          <article class="glass-card reveal tilt">
+            <div class="card-icon">🗺️</div>
+            <h3>Informasi Tersebar</h3>
+            <p>RTH, tempat konseling, safe space, dan fasilitas pendukung sering belum terhubung dalam satu sistem spasial yang mudah dipahami.</p>
+          </article>
+          <article class="glass-card reveal tilt">
+            <div class="card-icon">🧭</div>
+            <h3>Butuh Rute Cepat</h3>
+            <p>WebGIS membantu pengguna memilih titik pemulihan terdekat, membaca level lingkungan, dan membuka rute menuju lokasi yang lebih sesuai.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container preview-grid">
+        <div class="mock-browser reveal">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>
+          <div class="mock-content">
+            <div class="mini-map">
+              <svg class="mini-route" viewBox="0 0 600 420" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M110 180 C 190 60, 300 230, 420 120 S 520 220, 470 305" fill="none" stroke="#5eead4" stroke-width="4" opacity=".9"/>
+                <path d="M128 260 C 210 340, 330 235, 438 315" fill="none" stroke="#ff8cc6" stroke-width="3" opacity=".55"/>
+              </svg>
+              <span class="mini-pin a"></span><span class="mini-pin b"></span><span class="mini-pin c"></span>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card reveal">
+          <span class="kicker">Konsep UI</span>
+          <h2>Catchy, tetapi tetap mudah dibaca.</h2>
+          <p class="lead" style="margin-top:18px">Tampilan dibuat dengan nuansa mental health yang tidak terlalu pucat: lavender, mint, pink, sky blue, dan peach. Interaksinya dibuat imersif, tetapi struktur informasinya tetap jelas seperti portal smart city.</p>
+          <div class="timeline" style="margin-top:24px">
+            <div class="timeline-item"><strong>Layer-based Navigation</strong><p>Pengguna memahami data lewat kategori visual: RTH, konseling, faskes, safe space, komunitas, dan stress zone.</p></div>
+            <div class="timeline-item"><strong>Emotional Recovery Score</strong><p>Setiap titik punya skor pemulihan berbasis indikator lingkungan awal: akses, kebisingan, keramaian, dan kualitas ruang.</p></div>
+            <div class="timeline-item"><strong>Action-first WebGIS</strong><p>Bukan hanya melihat titik, tetapi bisa mencari lokasi, melihat detail, membuat rute, dan mengekspor data.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head centered reveal">
+          <span class="kicker">Fitur Utama</span>
+          <h2>Satu sistem untuk eksplorasi, analisis, dan rekomendasi.</h2>
+          <p class="lead">Dirancang sebagai prototype akademik yang sudah siap dikembangkan menjadi aplikasi smart city kesehatan mental berbasis data geospasial.</p>
+        </div>
+        <div class="feature-row">
+          <article class="glass-card feature-card reveal tilt"><div><div class="card-icon">🗺️</div><h3>Interactive WebGIS</h3><p>Peta Leaflet dengan marker, radius zona, popup, detail panel, pencarian, filter kategori, dan basemap.</p></div><a class="btn small" href="map.html">Buka Peta</a></article>
+          <article class="glass-card feature-card reveal tilt"><div><div class="card-icon">📊</div><h3>Spatial Dashboard</h3><p>Ringkasan jumlah lokasi, skor pemulihan, akses, support node, grafik kategori, dan prioritas intervensi.</p></div><a class="btn small" href="dashboard.html">Lihat Dashboard</a></article>
+          <article class="glass-card feature-card reveal tilt"><div><div class="card-icon">🧘</div><h3>Self-check Guide</h3><p>Resource ringan untuk membantu pengguna menentukan jenis ruang atau dukungan yang mungkin dibutuhkan.</p></div><a class="btn small" href="resources.html">Buka Resources</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container split">
+        <div class="reveal">
+          <span class="kicker">Outcome</span>
+          <h2>Output final yang bisa dipresentasikan.</h2>
+          <p class="lead" style="margin-top:18px">Website ini sudah disusun sebagai paket presentasi digital: landing page, peta, dashboard, dataset, metodologi, edukasi pengguna, dan profil project.</p>
+        </div>
+        <div class="card-grid two">
+          <div class="glass-card reveal"><span class="stat-big gradient-text">01</span><span class="stat-label">WebGIS interaktif berbasis spasial.</span></div>
+          <div class="glass-card reveal"><span class="stat-big gradient-text">02</span><span class="stat-label">Dashboard pengambilan keputusan.</span></div>
+          <div class="glass-card reveal"><span class="stat-big gradient-text">03</span><span class="stat-label">Dataset CSV/GeoJSON siap ekspor.</span></div>
+          <div class="glass-card reveal"><span class="stat-big gradient-text">04</span><span class="stat-label">Metode SIG, SDI, dan etika data.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container center reveal">
+        <span class="kicker">Mulai</span>
+        <h2>Masuk ke peta dan eksplorasi safe zone.</h2>
+        <p class="lead" style="margin:18px auto 28px">Gunakan filter untuk memilih kategori, temukan titik terdekat, lalu lihat detail dan rekomendasi sistem.</p>
+        <a class="btn primary" href="map.html">Buka WebGIS Sekarang</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt=""><span>MH SafeZone</span></a>
+        <p style="margin-top:14px">Prototype WebGIS smart city untuk pemetaan zona stres dan ruang pemulihan emosi.</p>
+      </div>
+      <div><strong>Menu</strong><a href="map.html">WebGIS</a><a href="dashboard.html">Dashboard</a><a href="methodology.html">Metode</a></div>
+      <div><strong>Project</strong><a href="data.html">Dataset</a><a href="resources.html">Resources</a><a href="about.html">About</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

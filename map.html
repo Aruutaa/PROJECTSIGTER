@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebGIS — Mental Health Safe Zone System</title>
+  <meta name="description" content="Peta WebGIS interaktif untuk zona stress dan ruang pemulihan emosi di Kecamatan Depok, Sleman.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ME4rzQdRS1FuROvsnpeOuU0lNYYQ=" crossorigin="">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#map">Lewati ke peta</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="Logo"><span>MH SafeZone</span></a>
+      <div class="nav-links" data-nav-links>
+        <a href="index.html">Home</a><a href="map.html">WebGIS</a><a href="dashboard.html">Dashboard</a><a href="data.html">Data</a><a href="methodology.html">Metode</a><a href="resources.html">Resources</a><a href="about.html">About</a>
+      </div>
+      <div class="nav-actions"><a class="btn primary" href="dashboard.html">Dashboard</a><button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" data-menu-toggle><span></span><span></span></button></div>
+    </nav>
+  </header>
+
+  <main class="map-shell">
+    <aside class="map-sidebar" aria-label="Panel kontrol peta">
+      <span class="kicker">Interactive WebGIS</span>
+      <h1>Safe Zone Map</h1>
+      <p>Pilih layer, cari lokasi, aktifkan posisi Anda, lalu sistem akan membantu membaca titik pemulihan emosi dan zona tekanan.</p>
+
+      <div class="map-tools">
+        <input id="searchInput" class="input" type="search" placeholder="Cari: RTH, konseling, quiet, traffic..." aria-label="Cari lokasi">
+        <select id="stressFilter" class="select" aria-label="Filter level stres">
+          <option value="all">Semua level stres</option>
+          <option value="low">Stress rendah</option>
+          <option value="medium">Stress sedang</option>
+          <option value="high">Stress tinggi</option>
+          <option value="support">Node dukungan</option>
+        </select>
+        <select id="basemapSelect" class="select" aria-label="Pilih basemap">
+          <option value="dark">Dark mental map</option>
+          <option value="light">Light clean map</option>
+          <option value="osm">OpenStreetMap</option>
+        </select>
+      </div>
+
+      <h3 style="font-size:1.1rem;margin:20px 0 10px">Layer kategori</h3>
+      <div class="filter-grid">
+        <label class="filter-chip"><span>🌿 RTH</span><input data-category-filter type="checkbox" value="rth" checked></label>
+        <label class="filter-chip"><span>🫶 Konseling</span><input data-category-filter type="checkbox" value="counseling" checked></label>
+        <label class="filter-chip"><span>🏥 Faskes</span><input data-category-filter type="checkbox" value="health" checked></label>
+        <label class="filter-chip"><span>🧘 Safe Space</span><input data-category-filter type="checkbox" value="safe_space" checked></label>
+        <label class="filter-chip"><span>🤝 Komunitas</span><input data-category-filter type="checkbox" value="community" checked></label>
+        <label class="filter-chip"><span>⚡ Stress Zone</span><input data-category-filter type="checkbox" value="stress_zone" checked></label>
+      </div>
+
+      <div class="map-stats">
+        <div class="map-stat"><strong id="statTotal">0</strong><p>Lokasi tampil</p></div>
+        <div class="map-stat"><strong id="statRecovery">0</strong><p>Avg. recovery</p></div>
+        <div class="map-stat"><strong id="statStress">0</strong><p>Stress zone</p></div>
+        <div class="map-stat"><strong id="statSupport">0</strong><p>Support node</p></div>
+      </div>
+
+      <div class="map-tools">
+        <button class="btn primary block" id="nearestBtn" type="button">Cari safe zone terdekat</button>
+        <button class="btn block" id="locateBtn" type="button">Aktifkan lokasi saya</button>
+        <button class="btn block" id="fitBtn" type="button">Tampilkan semua titik</button>
+        <button class="btn block" id="downloadGeojsonBtn" type="button">Download GeoJSON terfilter</button>
+      </div>
+
+      <h3 style="font-size:1.1rem;margin:22px 0 8px">Daftar lokasi</h3>
+      <div id="locationList" class="location-list" aria-live="polite"></div>
+    </aside>
+
+    <section class="map-main" aria-label="Peta utama">
+      <div class="map-float">
+        <button class="btn small" type="button" onclick="window.MHZ_MAP?.nearest()">Nearest</button>
+        <button class="btn small" type="button" onclick="window.MHZ_MAP?.locate()">My Location</button>
+        <a class="btn small primary" href="data.html">Dataset</a>
+      </div>
+      <div id="map" role="application" aria-label="Peta Mental Health Safe Zone"></div>
+      <article id="detailPanel" class="detail-panel" aria-live="polite"></article>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/map.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metode — Mental Health Safe Zone System</title>
+  <meta name="description" content="Metodologi SIG, SDI, WebGIS, dan analisis spasial Mental Health Safe Zone System.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a><div class="noise" aria-hidden="true"></div><div class="cursor-dot" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div>
+  <header class="site-header"><nav class="nav container"><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="Logo"><span>MH SafeZone</span></a><div class="nav-links" data-nav-links><a href="index.html">Home</a><a href="map.html">WebGIS</a><a href="dashboard.html">Dashboard</a><a href="data.html">Data</a><a href="methodology.html">Metode</a><a href="resources.html">Resources</a><a href="about.html">About</a></div><div class="nav-actions"><a class="btn primary" href="map.html">Buka Peta</a><button class="menu-toggle" type="button" aria-label="Buka menu" data-menu-toggle><span></span><span></span></button></div></nav></header>
+  <main id="main">
+    <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Metode</span></div><span class="kicker">GIS · SDI · Smart Health</span><h1>Metodologi Project</h1><p class="lead" style="margin-top:18px">Kerangka kerja dari pengumpulan data lokasi, normalisasi koordinat, klasifikasi zona, visualisasi WebGIS, hingga evaluasi etika data kesehatan mental.</p></div></section>
+
+    <section class="section compact"><div class="container split">
+      <div class="reveal"><span class="kicker">Workflow</span><h2>Tahapan kerja WebGIS</h2><p class="lead" style="margin-top:18px">Alur ini dapat langsung dipakai sebagai isi slide “Tahapan Project” agar tidak kosong: mulai dari inventarisasi data hingga publikasi prototipe GitHub Pages.</p></div>
+      <div class="timeline reveal">
+        <div class="timeline-item"><strong>Inventarisasi Data</strong><p>Mengumpulkan titik RTH, kandidat safe space, fasilitas konseling, fasilitas kesehatan, komunitas, dan area tekanan tinggi.</p></div>
+        <div class="timeline-item"><strong>Cleaning & Normalisasi</strong><p>Merapikan format koordinat menjadi decimal degree, menstandarkan nama lokasi, kategori, dan atribut dasar.</p></div>
+        <div class="timeline-item"><strong>Klasifikasi Spasial</strong><p>Memberi kategori layer, stress level, radius zona, recovery score, access score, dan catatan rekomendasi.</p></div>
+        <div class="timeline-item"><strong>Visualisasi WebGIS</strong><p>Menampilkan marker, circle radius, legenda, filter, pencarian, popup, detail panel, dan rute.</p></div>
+        <div class="timeline-item"><strong>Dashboard & Evaluasi</strong><p>Membaca distribusi kategori, gap layanan, prioritas lokasi, dan simulasi indeks pemulihan.</p></div>
+      </div>
+    </div></section>
+
+    <section class="section compact"><div class="container">
+      <div class="section-head reveal"><div><span class="kicker">Analisis Spasial</span><h2>Model analisis yang digunakan</h2></div><p class="lead">Prototype ini belum memakai model klinis. Fokusnya adalah spatial decision support untuk membantu pengguna menemukan ruang atau layanan yang relevan.</p></div>
+      <div class="card-grid three">
+        <article class="glass-card reveal"><div class="card-icon">📍</div><h3>Nearest Facility</h3><p>Menghitung jarak titik pengguna atau pusat peta ke kandidat safe zone terdekat menggunakan rumus Haversine.</p></article>
+        <article class="glass-card reveal"><div class="card-icon">⭕</div><h3>Buffer Zone</h3><p>Menampilkan radius pengaruh area, terutama untuk stress zone dan ruang terbuka yang memiliki cakupan lingkungan tertentu.</p></article>
+        <article class="glass-card reveal"><div class="card-icon">🎚️</div><h3>Weighted Score</h3><p>Recovery score disusun dari indikator awal: aksesibilitas, kebisingan, keramaian, ruang hijau, dan dukungan layanan.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section compact"><div class="container split">
+      <article class="glass-card reveal"><span class="kicker">Data Layer</span><h2>Struktur layer</h2><p style="margin-top:14px">Layer dibedakan agar pengguna baru tidak bingung. Kategori tidak hanya rumah sakit, tetapi mencakup ekosistem pendukung kesehatan mental.</p><div class="tags" style="margin-top:18px"><span class="badge mint">RTH</span><span class="badge lavender">Konseling</span><span class="badge">Faskes</span><span class="badge pink">Safe Space</span><span class="badge peach">Komunitas</span><span class="badge pink">Stress Zone</span></div></article>
+      <article class="glass-card reveal"><span class="kicker">Scoring</span><h2>Rumus prototipe</h2><p style="margin-top:14px">Skor awal dapat disesuaikan setelah survei lapangan. Untuk presentasi, rumus ini cukup menjelaskan bahwa sistem menilai kualitas ruang secara kuantitatif.</p><pre style="white-space:pre-wrap;color:#dce7ff;margin-top:18px"><code>Recovery Index =
+(0.42 × Green Quality) +
+(0.26 × Accessibility) +
+(0.18 × Low Noise) +
+(0.14 × Low Crowd)</code></pre></article>
+    </div></section>
+
+    <section class="section compact"><div class="container">
+      <div class="section-head reveal"><div><span class="kicker">Ethics & Privacy</span><h2>Etika penting untuk topik kesehatan mental</h2></div><p class="lead">Karena topiknya menyentuh kesehatan mental, sistem harus memprioritaskan keamanan pengguna, privasi lokasi, dan batasan klaim layanan.</p></div>
+      <div class="card-grid four">
+        <article class="glass-card reveal"><h3>Consent</h3><p>Jangan menyimpan mood, riwayat lokasi, atau data pribadi tanpa persetujuan yang jelas.</p></article>
+        <article class="glass-card reveal"><h3>No Diagnosis</h3><p>Self-check hanya edukatif, bukan diagnosis atau pengganti psikolog/psikiater.</p></article>
+        <article class="glass-card reveal"><h3>Verified Service</h3><p>Nama lembaga, kontak, jam layanan, dan status bantuan darurat harus diverifikasi.</p></article>
+        <article class="glass-card reveal"><h3>Safety First</h3><p>RTH atau safe space harus dinilai dari keamanan fisik, pencahayaan, akses, dan risiko lingkungan.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section compact"><div class="container center reveal"><span class="kicker">Next Step</span><h2>Siapkan validasi lapangan.</h2><p class="lead" style="margin:18px auto 28px">Tahap lanjutan terbaik adalah survei GPS, observasi jam ramai, noise sampling sederhana, wawancara pengguna, dan verifikasi kontak layanan.</p><a class="btn primary" href="data.html">Lihat Struktur Data</a></div></section>
+  </main>
+  <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt=""><span>MH SafeZone</span></a><p style="margin-top:14px">Metode SIG dan SDI untuk prototype smart city kesehatan mental.</p></div><div><strong>Menu</strong><a href="map.html">WebGIS</a><a href="dashboard.html">Dashboard</a></div><div><strong>Project</strong><a href="data.html">Data</a><a href="about.html">About</a></div></div></footer>
+  <script src="assets/js/data.js"></script><script src="assets/js/main.js"></script>
+</body>
+</html>
