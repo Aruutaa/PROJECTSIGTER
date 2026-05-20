@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Resources kesehatan mental dan penggunaan safe space." />
+  <title>Resources · Mental Health Safe Zone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="resources">
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header compact" data-header>
+    <a class="brand" href="index.html"><span class="brand-mark">MH</span><span class="brand-text">SafeZone<span>GIS</span></span></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Buka menu navigasi"><span></span><span></span></button>
+    <nav class="site-nav" data-nav>
+      <a href="index.html">Home</a>
+      <a href="map.html">WebGIS</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="data.html">Data</a>
+      <a href="methodology.html">Metodologi</a>
+      <a href="resources.html" class="active">Resources</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container narrow reveal">
+        <p class="eyebrow">Mental health resources</p>
+        <h1>Panduan singkat sebelum mencari ruang aman.</h1>
+        <p>Halaman ini bersifat edukatif dan tidak menggantikan layanan profesional. Jika berada dalam kondisi darurat atau berisiko melukai diri/orang lain, segera hubungi layanan darurat setempat atau orang terpercaya di sekitar Anda.</p>
+      </div>
+    </section>
+
+    <section class="section-padding no-top">
+      <div class="container resource-grid">
+        <article class="resource-card reveal"><span>01</span><h2>Grounding 5-4-3-2-1</h2><p>Sebutkan 5 hal yang terlihat, 4 yang terasa, 3 yang terdengar, 2 yang tercium, dan 1 yang dapat dikecap.</p></article>
+        <article class="resource-card reveal"><span>02</span><h2>Tarik napas 4-4-6</h2><p>Tarik napas 4 detik, tahan 4 detik, lalu hembuskan 6 detik. Ulangi 3–5 kali.</p></article>
+        <article class="resource-card reveal"><span>03</span><h2>Pilih lokasi rendah stimulus</h2><p>Cari tempat dengan kebisingan rendah, pencahayaan nyaman, dan akses keluar yang mudah.</p></article>
+        <article class="resource-card reveal"><span>04</span><h2>Hubungi support system</h2><p>Beritahu teman, keluarga, konselor, atau petugas kampus jika stres terasa sulit dikendalikan.</p></article>
+      </div>
+    </section>
+
+    <section class="section-padding no-top">
+      <div class="container glass-card calming-card reveal">
+        <div>
+          <p class="eyebrow">Self check</p>
+          <h2>Apakah saya perlu mencari bantuan?</h2>
+        </div>
+        <ul class="check-list">
+          <li>Stres mengganggu tidur, makan, belajar, atau bekerja.</li>
+          <li>Merasa panik, kewalahan, atau sulit menenangkan diri berulang kali.</li>
+          <li>Menghindari aktivitas sosial secara ekstrem.</li>
+          <li>Muncul pikiran untuk menyakiti diri atau merasa tidak aman.</li>
+        </ul>
+        <a href="map.html" class="btn btn-primary magnet">Cari titik dukungan</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><p>© 2026 Mental Health Safe Zone System</p><p>Educational resources.</p></div></footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

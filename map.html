@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="WebGIS Mental Health Safe Zone: peta interaktif zona stres, safe space, RTH, dan layanan kesehatan mental." />
+  <title>WebGIS · Mental Health Safe Zone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQZ6qPzC7E1FLKwlKvf9xG+y+8II3Qo=" crossorigin="" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/map.css" />
+</head>
+<body data-page="map">
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header compact" data-header>
+    <a class="brand" href="index.html"><span class="brand-mark">MH</span><span class="brand-text">SafeZone<span>GIS</span></span></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Buka menu navigasi"><span></span><span></span></button>
+    <nav class="site-nav" data-nav>
+      <a href="index.html">Home</a>
+      <a href="map.html" class="active">WebGIS</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="data.html">Data</a>
+      <a href="methodology.html">Metodologi</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="map-shell">
+    <aside class="map-sidebar glass-card">
+      <div class="sidebar-head">
+        <p class="eyebrow">Live WebGIS</p>
+        <h1>Mental Health & Safe Space Map</h1>
+        <p>Pilih kategori, cari lokasi, lalu buka rute menuju ruang pemulihan atau fasilitas terdekat.</p>
+      </div>
+
+      <div class="search-box">
+        <input id="searchInput" type="search" placeholder="Cari lokasi, kategori, atau fasilitas..." aria-label="Cari lokasi" />
+      </div>
+
+      <div class="filter-group" aria-label="Filter kategori peta">
+        <button class="chip active" data-filter="all">Semua</button>
+        <button class="chip" data-filter="rth">RTH</button>
+        <button class="chip" data-filter="counseling">Konseling</button>
+        <button class="chip" data-filter="health">Fasilitas</button>
+        <button class="chip" data-filter="safe-space">Safe Space</button>
+        <button class="chip" data-filter="stress-zone">Zona Stres</button>
+      </div>
+
+      <div class="map-tools">
+        <button id="locateBtn" class="tool-btn">Gunakan lokasi saya</button>
+        <button id="resetBtn" class="tool-btn secondary">Reset peta</button>
+      </div>
+
+      <div class="legend">
+        <h2>Legenda</h2>
+        <span><i class="legend-dot rth"></i>Ruang Terbuka Hijau</span>
+        <span><i class="legend-dot counseling"></i>Konseling / Support</span>
+        <span><i class="legend-dot health"></i>Fasilitas Kesehatan</span>
+        <span><i class="legend-dot safe-space"></i>Safe Space</span>
+        <span><i class="legend-dot stress-zone"></i>Zona Stres</span>
+      </div>
+
+      <div class="location-list" id="locationList" aria-live="polite"></div>
+    </aside>
+
+    <section class="map-stage">
+      <div class="map-topbar glass-card">
+        <div><strong id="resultCount">0</strong><span> lokasi aktif</span></div>
+        <div><strong id="nearestLabel">-</strong><span> lokasi terpilih</span></div>
+        <div><strong>Depok</strong><span> Kabupaten Sleman</span></div>
+      </div>
+      <div id="map" role="application" aria-label="Peta interaktif Mental Health Safe Zone"></div>
+      <div class="detail-panel glass-card" id="detailPanel">
+        <p class="eyebrow">Detail lokasi</p>
+        <h2>Pilih marker atau daftar lokasi</h2>
+        <p>Informasi kategori, tingkat ketenangan, fasilitas, dan akses rute akan tampil di sini.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/map.js"></script>
+</body>
+</html>
